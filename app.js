@@ -1,14 +1,16 @@
 let cricket = new XMLHttpRequest()
 
 let arrDisData = []
-let newArrs = []
+let testArr = []
+let odiArr = []
+let t20Arr = []
 
 
 cricket.open("GET","cric.JSON",true)
 
 cricket.send()
 
-let table = document.querySelector('table')
+let table = document.querySelectorAll('table')
 
 cricket.onload = function(){
     if(cricket.status==200){
@@ -17,24 +19,60 @@ cricket.onload = function(){
     let cricket = JSON.parse(response)
     
     let test = cricket.data[0].team
+
     
     for(let i = 0;i<test.length;i++){
-        newArrs.push(test[i])
+        testArr.push(test[i])
     }
-  
     testRanking()
-}
+
+    let odi = cricket.data[1].team
+
+    for(let i = 0;i<odi.length;i++){
+        odiArr.push(odi[i])
+    }
+    odiRanking()
+    
+    let t20 = cricket.data[2].team
+
+    for(let i = 0;i<odi.length;i++){
+        t20Arr.push(t20[i])
+    }
+    t20Ranking()
+    }
 }
 
 
 function testRanking(){
-    console.log(newArrs)
-    table.innerHTML="<tr><td>Ranking</td><td>Country Name</td><td>Rating</td><td>Flag</td></tr>"
+    console.log(testArr)
+    table[0].innerHTML="<tr><th>Ranking</th><th>Country </th><th>Rating</th><th>Flag</th></tr>"
 
-    for(let i=0;i<newArrs.length;i++){
-        console.log(newArrs[i].position)
-        table.innerHTML+="<tr><td>"+newArrs[i].position+"</td><td>"+newArrs[i].name+"</td><td>"+newArrs[i].ranking.rating+"</td><td><img src="+newArrs[i].image_path+"></td><tr>"
+    for(let i=0;i<testArr.length;i++){
+        console.log(testArr[i].position)
+        table[0].innerHTML+="<tr><td>"+testArr[i].position+"</td><td>"+testArr[i].name+"</td><td>"+testArr[i].ranking.rating+"</td><td><img src="+testArr[i].image_path+"></td><tr>"
     }
 
+
+}
+
+function odiRanking(){
+
+    table[1].innerHTML="<tr><th>Ranking</th><th>Country</th><th>Rating</th><th>Flag</th></tr>"
+
+    for(let i=0;i<odiArr.length;i++){
+        console.log(odiArr[i].position)
+        table[1].innerHTML+="<tr><td>"+odiArr[i].position+"</td><td>"+odiArr[i].name+"</td><td>"+odiArr[i].ranking.rating+"</td><td><img src="+odiArr[i].image_path+"></td><tr>"
+    }
+
+}
+
+function t20Ranking(){
+
+    table[2].innerHTML="<tr><th>Ranking</th><th>Country</th><th>Rating</th><th>Flag</th></tr>"
+
+    for(let i=0;i<t20Arr.length;i++){
+        console.log(t20Arr[i].position)
+        table[2].innerHTML+="<tr><td>"+t20Arr[i].position+"</td><td>"+t20Arr[i].name+"</td><td>"+t20Arr[i].ranking.rating+"</td><td><img src="+t20Arr[i].image_path+"></td><tr>"
+    }
 
 }
