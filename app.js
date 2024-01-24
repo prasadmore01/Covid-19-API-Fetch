@@ -8,18 +8,30 @@ cricket.open("GET","cric.JSON",true)
 
 cricket.send()
 
+let table = document.querySelector('table')
+
 cricket.onload = function(){
+    let table = document.querySelector('table')
     let response = this.responseText;
     let cricket = JSON.parse(response)
     
     let test = cricket.data[0].team
-    console.log(test)
-    let table = document.querySelector('table')
+    
+    for(let i = 0;i<test.length;i++){
+        newArrs.push(test[i])
+    }
+  
+    testRanking()
+   
+}
+
+
+function testRanking(){
+    console.log(newArrs)
     table.innerHTML="<tr><td>Ranking</td><td>Country Name</td><td>Rating</td><td>Flag</td></tr>"
 
-
-    for(let i=0;i<=test.length;i++){
-        table.innerHTML+="<tr><td>"+test[i].position+"</td><td>"+test[i].name+"</td><td>"+test[i].ranking.rating+"</td><td><img src="+test[i].image_path+"></td><tr>"
+    for(let i=0;i<=newArrs.length;i++){
+        table.innerHTML+="<tr><td>"+newArrs[i].position+"</td><td>"+newArrs[i].name+"</td><td>"+newArrs[i].ranking.rating+"</td><td><img src="+newArrs[i].image_path+"></td><tr>"
     }
 
 }
