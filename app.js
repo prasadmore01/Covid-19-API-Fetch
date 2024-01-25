@@ -47,7 +47,7 @@ function testRanking(){
     console.log(testArr)
     table[0].innerHTML="<tr><th>Ranking</th><th>Country </th><th>Rating</th><th>Flag</th></tr>"
 
-    for(let i=0;i<testArr.length;i++){
+    for(let i=0;i<12;i++){
         console.log(testArr[i].position)
         table[0].innerHTML+="<tr><td>"+testArr[i].position+"</td><td>"+testArr[i].name+"</td><td>"+testArr[i].ranking.rating+"</td><td><img src="+testArr[i].image_path+"></td><tr>"
     }
@@ -59,7 +59,7 @@ function odiRanking(){
 
     table[1].innerHTML="<tr><th>Ranking</th><th>Country</th><th>Rating</th><th>Flag</th></tr>"
 
-    for(let i=0;i<odiArr.length;i++){
+    for(let i=0;i<12;i++){
         console.log(odiArr[i].position)
         table[1].innerHTML+="<tr><td>"+odiArr[i].position+"</td><td>"+odiArr[i].name+"</td><td>"+odiArr[i].ranking.rating+"</td><td><img src="+odiArr[i].image_path+"></td><tr>"
     }
@@ -70,7 +70,7 @@ function t20Ranking(){
 
     table[2].innerHTML="<tr><th>Ranking</th><th>Country</th><th>Rating</th><th>Flag</th></tr>"
 
-    for(let i=0;i<t20Arr.length;i++){
+    for(let i=0;i<12;i++){
         console.log(t20Arr[i].position)
         table[2].innerHTML+="<tr><td>"+t20Arr[i].position+"</td><td>"+t20Arr[i].name+"</td><td>"+t20Arr[i].ranking.rating+"</td><td><img src="+t20Arr[i].image_path+"></td><tr>"
     }
