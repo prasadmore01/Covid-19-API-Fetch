@@ -6,9 +6,18 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 20px;
+
     justify-content: center;
 }
+
+#titleMain{
+    text-align: center;
+    width: 100%;
+    font-size: 50px;
+    color:saddlebrown;
+    text-decoration: underline;
+}
+
 .containerCard{
     width: 30%;
 
